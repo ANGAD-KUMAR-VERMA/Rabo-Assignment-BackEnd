@@ -3,8 +3,9 @@ This application performs necessary validations of customer bank transaction sta
 
 ## Getting Started
 Clone or download the source code from -
-
+```bash
 * https://github.com/ANGAD-KUMAR-VERMA/Rabo-Assignment-BackEnd/tree/master/csv-xml-validator
+```
 
 ### Prerequisites
 Things required to work properly
@@ -48,9 +49,11 @@ To pass the file location
 	
 ## Output
 If the input file is of extension "csv" the report will be generated in base directory as
-
+```bash
 CSVReport.csv
+```
 
 If the input file is of extension "xml" the report will be generated in base directory as
-
+```bash
 XMLReport.csv
+```
