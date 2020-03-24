@@ -1,4 +1,4 @@
-Rabobank Report Generator
+# Rabobank Report Generator
 This application performs necessary validations of customer bank transaction statements and generates a report with failed validations.
 
 Getting Started
