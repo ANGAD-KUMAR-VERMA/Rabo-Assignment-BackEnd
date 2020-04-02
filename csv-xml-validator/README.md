@@ -1,12 +1,13 @@
-Rabobank Report Generator
+# Rabobank Report Generator
 This application performs necessary validations of customer bank transaction statements and generates a report with failed validations.
 
-Getting Started
+## Getting Started
 Clone or download the source code from -
-
+```bash
 * https://github.com/ANGAD-KUMAR-VERMA/Rabo-Assignment-BackEnd/tree/master/csv-xml-validator
+```
 
-Prerequisites
+### Prerequisites
 Things required to work properly
 
 Java SE Runtime Environment- https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
@@ -15,7 +16,7 @@ Spring Tool Suite(STS)- https://spring.io/tools3/sts/all
 
 Postman- https://www.getpostman.com/downloads/
 
-Installation
+### Installation
 Open the project in Spring Tool Suite
 
 	- File -> Open Projects from File System 
@@ -46,11 +47,13 @@ To pass the file location
 			- sample in "src/main/resources"
 	- Click Send
 	
-Output
+## Output
 If the input file is of extension "csv" the report will be generated in base directory as
-
+```bash
 CSVReport.csv
+```
 
 If the input file is of extension "xml" the report will be generated in base directory as
-
+```bash
 XMLReport.csv
+```
