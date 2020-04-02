@@ -1,26 +1,30 @@
 package cts.rabobank.projects.csvxmlvalidator.entity;
 
+import java.math.BigDecimal;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import cts.rabobank.projects.csvxmlvalidator.repo.ParserInterface;
+
 @XmlRootElement(name = "record")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Records {
+public class Records implements ParserInterface {
 	private Integer reference;
 	private String accountNumber;
 	private String description;
-	private Float startBalance;
-	private Float mutation;
-	private Float endBalance;
+	private BigDecimal startBalance;
+	private BigDecimal mutation;
+	private BigDecimal endBalance;
 
 	public Records() {
 		super();
 	}
 
-	public Records(Integer reference, String accountNumber, String description, Float startBalance, Float mutation,
-			Float endBalance) {
+	public Records(Integer reference, String accountNumber, String description, BigDecimal startBalance,
+			BigDecimal mutation, BigDecimal endBalance) {
 		super();
 		this.reference = reference;
 		this.accountNumber = accountNumber;
@@ -55,28 +59,30 @@ public class Records {
 		this.description = description;
 	}
 
-	public Float getStartBalance() {
+	public BigDecimal getStartBalance() {
 		return startBalance;
 	}
 
-	public void setStartBalance(Float startBalance) {
+	public void setStartBalance(BigDecimal startBalance) {
 		this.startBalance = startBalance;
 	}
 
-	public Float getMutation() {
+	public BigDecimal getMutation() {
 		return mutation;
 	}
 
-	public void setMutation(Float mutation) {
+	public void setMutation(BigDecimal mutation) {
 		this.mutation = mutation;
 	}
 
-	public Float getEndBalance() {
+	public BigDecimal getEndBalance() {
 		return endBalance;
 	}
 
-	public void setEndBalance(Float endBalance) {
+	public void setEndBalance(BigDecimal endBalance) {
 		this.endBalance = endBalance;
 	}
+
+	
 
 }

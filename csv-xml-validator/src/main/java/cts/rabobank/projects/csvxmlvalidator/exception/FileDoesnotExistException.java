@@ -1,8 +1,12 @@
 package cts.rabobank.projects.csvxmlvalidator.exception;
 
-public class FileDoesnotExistException extends Exception {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-	public FileDoesnotExistException(String string) {
-		super(string);
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class FileDoesnotExistException extends RuntimeException {
+
+	public FileDoesnotExistException(String exception) {
+		super(exception);
 	}
 }

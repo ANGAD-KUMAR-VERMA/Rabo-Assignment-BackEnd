@@ -9,20 +9,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import cts.rabobank.projects.csvxmlvalidator.entity.CustomMessage;
+
 @ControllerAdvice
 public class ExceptionConroller {
 	private static final Logger logger = LoggerFactory.getLogger(ExceptionConroller.class);
 
-	@ExceptionHandler(UnknownFileException.class)
-	public ResponseEntity<Object> exception(UnknownFileException exception) {
-		logger.debug("Unknown File Exception : {}", exception.getMessage());
-		return new ResponseEntity<>("Unknown File Type", HttpStatus.NOT_FOUND);
+	@ExceptionHandler(value = { FileDoesnotExistException.class, UnExpectedFileFormatException.class })
+	public ResponseEntity<CustomMessage> handleFileDoesNotExistException(Exception exception) {
+		logger.error("Exception : {}", exception.getMessage());
+		CustomMessage apiCustomMessage = new CustomMessage(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
+		return new ResponseEntity<>(apiCustomMessage, HttpStatus.BAD_REQUEST);
 	}
 
-	@ExceptionHandler(Exception.class)
-	public final ResponseEntity<ExceptionDetails> handleAllExceptions(Exception exception) {
-		logger.debug("Exception : {}", exception.getMessage());
-		ExceptionDetails exceptionDetails = new ExceptionDetails(new Date(), exception.getMessage());
-		return new ResponseEntity<>(exceptionDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+	@ExceptionHandler(value = { UnknownFileException.class })
+	public ResponseEntity<CustomMessage> handleUnknownFileException(Exception exception) {
+		logger.error("Exception : {}", exception.getMessage());
+		CustomMessage apiCustomMessage = new CustomMessage(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
+		return new ResponseEntity<>(apiCustomMessage, HttpStatus.BAD_REQUEST);
+
 	}
+
+	@ExceptionHandler(value = { Exception.class })
+	public ResponseEntity<CustomMessage> handleAllExceptions(Exception exception) {
+		logger.error("Exception : {}", exception.getMessage());
+		CustomMessage apiCustomMessage = new CustomMessage(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
+		return new ResponseEntity<>(apiCustomMessage, HttpStatus.BAD_REQUEST);
+	}
+
 }

@@ -1,9 +1,13 @@
 package cts.rabobank.projects.csvxmlvalidator.exception;
 
-public class UnExpectedFileFormatException extends Exception {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-	public UnExpectedFileFormatException(String string) {
-		super(string);
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class UnExpectedFileFormatException extends RuntimeException {
+
+	public UnExpectedFileFormatException(String exception) {
+		super(exception);
 	}
 
 }

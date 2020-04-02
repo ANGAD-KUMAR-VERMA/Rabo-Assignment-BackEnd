@@ -1,8 +1,12 @@
 package cts.rabobank.projects.csvxmlvalidator.entity;
 
+import java.math.BigDecimal;
+
 import com.opencsv.bean.CsvBindByName;
 
-public class CSVEntity {
+import cts.rabobank.projects.csvxmlvalidator.repo.ParserInterface;
+
+public class CSVEntity implements ParserInterface{
 
 	@CsvBindByName
 	private Integer reference;
@@ -11,25 +15,25 @@ public class CSVEntity {
 	@CsvBindByName
 	private String accountNumber;
 	@CsvBindByName(column = "Start Balance")
-	private Float startBalance;
+	private BigDecimal startBalance;
 	@CsvBindByName
-	private Float mutation;
+	private BigDecimal mutation;
 	@CsvBindByName(column = "End Balance")
-	private Float endBalance;
+	private BigDecimal endBalance;
 
 	public CSVEntity() {
 
 	}
 
-	public CSVEntity(Integer reference, String description, String accountNumber, Float startBalance, Float endBalance,
-			Float mutation) {
+	public CSVEntity(Integer reference, String description, String accountNumber, BigDecimal startBalance,
+			BigDecimal mutation, BigDecimal endBalance) {
 		super();
 		this.reference = reference;
 		this.description = description;
 		this.accountNumber = accountNumber;
 		this.startBalance = startBalance;
-		this.endBalance = endBalance;
 		this.mutation = mutation;
+		this.endBalance = endBalance;
 	}
 
 	public Integer getReference() {
@@ -56,28 +60,29 @@ public class CSVEntity {
 		this.accountNumber = accountNumber;
 	}
 
-	public Float getStartBalance() {
+	public BigDecimal getStartBalance() {
 		return startBalance;
 	}
 
-	public void setStartBalance(Float startBalance) {
+	public void setStartBalance(BigDecimal startBalance) {
 		this.startBalance = startBalance;
 	}
 
-	public Float getEndBalance() {
-		return endBalance;
-	}
-
-	public void setEndBalance(Float endBalance) {
-		this.endBalance = endBalance;
-	}
-
-	public Float getMutation() {
+	public BigDecimal getMutation() {
 		return mutation;
 	}
 
-	public void setMutation(Float mutation) {
+	public void setMutation(BigDecimal mutation) {
 		this.mutation = mutation;
 	}
 
+	public BigDecimal getEndBalance() {
+		return endBalance;
+	}
+
+	public void setEndBalance(BigDecimal endBalance) {
+		this.endBalance = endBalance;
+	}
+
+	
 }

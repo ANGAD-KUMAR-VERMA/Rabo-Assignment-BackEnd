@@ -21,9 +21,9 @@ import cts.rabobank.projects.csvxmlvalidator.service.XmlService;
 
 @RestController
 @RequestMapping("getReport")
-public class CsvXmlReportGeneratorController {
+public class CsvXmlController {
 
-	private static final Logger logger = LoggerFactory.getLogger(CsvXmlReportGeneratorController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CsvXmlController.class);
 
 	@Autowired
 	private CsvService csvService;
@@ -49,8 +49,8 @@ public class CsvXmlReportGeneratorController {
 
 		} else {
 
-			logger.error("Unknown File Type : {}", fileType);
-			throw new UnknownFileException();
+			
+			throw new UnknownFileException("Unknown File Type");
 		}
 
 		return new ResponseEntity<>("Report Generated Successfully", HttpStatus.OK);
