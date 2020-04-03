@@ -20,7 +20,7 @@ import cts.rabobank.projects.csvxmlvalidator.service.CsvService;
 import cts.rabobank.projects.csvxmlvalidator.service.XmlService;
 
 @RestController
-@RequestMapping("getReport")
+@RequestMapping("report")
 public class CsvXmlController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CsvXmlController.class);
@@ -38,18 +38,12 @@ public class CsvXmlController {
 		String fileType = FilenameUtils.getExtension(filePath);
 
 		if (fileType.equals("csv")) {
-
 			logger.info("CSV file ");
-			csvService.csvValidateAndGenerateReport(filePath);
-
+			csvService.validateAndGenerateReport(filePath);
 		} else if (fileType.equals("xml")) {
-
 			logger.info("XML file has been loaded");
 			xmlService.validateAndGenerateReport(filePath);
-
 		} else {
-
-			
 			throw new UnknownFileException("Unknown File Type");
 		}
 

@@ -29,13 +29,13 @@ import cts.rabobank.projects.csvxmlvalidator.exception.UnExpectedFileFormatExcep
 import cts.rabobank.projects.csvxmlvalidator.util.CsvXmlValidateAndGenerateReport;
 
 @Service("CsvService")
-public class CsvService {
+public class CsvService implements CsvXmlInterface {
 
 
 
 	Logger logger = LoggerFactory.getLogger(CsvService.class);
 
-	public void csvValidateAndGenerateReport(String fileName) throws IOException {
+	public void validateAndGenerateReport(String fileName) throws IOException {
 		try {
 			List reportEntity = uploadFile(fileName);
 			Set<Integer> duplicateReferences = CsvXmlValidateAndGenerateReport.findDuplicateReferences(reportEntity);
@@ -49,7 +49,7 @@ public class CsvService {
 		
 	}
 
-	private List<CSVEntity> uploadFile(String fileName) throws IOException, NoSuchFileException {
+	public List uploadFile(String fileName) throws IOException, NoSuchFileException {
 		List<CSVEntity> reportEntity = null;
 		Path path = Paths.get(fileName);
 		

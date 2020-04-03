@@ -14,19 +14,22 @@ import java.util.Map;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import cts.rabobank.projects.csvxmlvalidator.entity.CSVEntity;
 import cts.rabobank.projects.csvxmlvalidator.util.CsvXmlValidateAndGenerateReport;
 
 public class CsvServiceTest {
 
-//	@Test
-//	void testCsvValidateAndGenerateReport() throws IOException {
-//		CsvService test = new CsvService();
-//		String actual = test.csvValidateAndGenerateReport("src/main/resources/records.csv");
-//		String expected = "Success";
-//		assertEquals(expected, actual);
-//	}
+ 
+	
+	@Test
+	void testCsvValidateAndGenerateReport() throws IOException{
+		CsvService test = new CsvService();
+		test.validateAndGenerateReport("src/main/resources/records.csv");
+	}
+	
+	
 
 
 

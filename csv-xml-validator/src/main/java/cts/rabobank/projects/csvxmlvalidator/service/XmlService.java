@@ -34,7 +34,7 @@ import cts.rabobank.projects.csvxmlvalidator.exception.UnExpectedFileFormatExcep
 import cts.rabobank.projects.csvxmlvalidator.util.CsvXmlValidateAndGenerateReport;
 
 @Service("XmlService")
-public class XmlService {
+public class XmlService implements CsvXmlInterface {
 
 	Logger logger = LoggerFactory.getLogger(XmlService.class);
 
@@ -52,7 +52,7 @@ public class XmlService {
 		}
 	}
 
-	private List<Records> uploadFile(String fileName) throws JAXBException, IOException, UnmarshalException {
+	public List<Records> uploadFile(String fileName) throws JAXBException, IOException, UnmarshalException {
 		List<Records> allElements = null;
 		JAXBContext jaxbContext;
 		Path path = Paths.get(fileName);
