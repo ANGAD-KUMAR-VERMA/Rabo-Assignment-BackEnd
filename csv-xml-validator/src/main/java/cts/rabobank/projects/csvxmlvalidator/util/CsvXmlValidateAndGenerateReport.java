@@ -114,7 +114,7 @@ public class CsvXmlValidateAndGenerateReport {
 
 			}
 		} catch (IOException e) {
-			// handle the Exception
+			throw new IOException();
 		} finally {
 			csvWriter.close();
 		}
