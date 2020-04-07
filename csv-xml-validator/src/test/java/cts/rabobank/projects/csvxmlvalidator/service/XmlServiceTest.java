@@ -20,17 +20,6 @@ public class XmlServiceTest {
 		});
 	}
 
-//	@Test()
-//	void testUnknownFileException() {
-//
-//		Assertions.assertThrows(UnknownFileException.class, () -> {
-//			String fileType = "txt";
-//			if (!fileType.equals("csv") && !fileType.equals("xml")) {
-//				throw new UnknownFileException("Unknown File Type");
-//			}
-//		});
-//	}
-
 	@Test
 	void testFileDoesnotExistexception() {
 
