@@ -1,7 +1,5 @@
 package cts.rabobank.projects.csvxmlvalidator.exception;
 
-import java.util.Date;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

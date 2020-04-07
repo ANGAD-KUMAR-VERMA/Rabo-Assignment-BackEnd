@@ -8,8 +8,7 @@ import javax.xml.bind.JAXBException;
 
 public interface CsvXmlInterface {
 
-	
 	public void validateAndGenerateReport(String filename) throws IOException, JAXBException;
-	
-	public List uploadFile(String filename) throws  NoSuchFileException, IOException, JAXBException;
+
+	public List uploadFile(String filename) throws NoSuchFileException, IOException, JAXBException;
 }

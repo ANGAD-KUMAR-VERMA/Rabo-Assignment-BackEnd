@@ -4,9 +4,7 @@ import java.math.BigDecimal;
 
 import com.opencsv.bean.CsvBindByName;
 
-import cts.rabobank.projects.csvxmlvalidator.repo.ParserInterface;
-
-public class CSVEntity implements ParserInterface{
+public class CSVEntity {
 
 	@CsvBindByName
 	private Integer reference;
@@ -84,5 +82,4 @@ public class CSVEntity implements ParserInterface{
 		this.endBalance = endBalance;
 	}
 
-	
 }

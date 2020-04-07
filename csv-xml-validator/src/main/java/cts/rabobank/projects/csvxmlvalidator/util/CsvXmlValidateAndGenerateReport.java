@@ -2,15 +2,12 @@ package cts.rabobank.projects.csvxmlvalidator.util;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -20,10 +17,8 @@ import com.opencsv.CSVWriter;
 
 import cts.rabobank.projects.csvxmlvalidator.entity.CSVEntity;
 import cts.rabobank.projects.csvxmlvalidator.entity.Records;
-import cts.rabobank.projects.csvxmlvalidator.repo.ParserInterface;
-import cts.rabobank.projects.csvxmlvalidator.service.XmlService;
 
-public class CsvXmlValidateAndGenerateReport  {
+public class CsvXmlValidateAndGenerateReport {
 	private static Logger logger = LoggerFactory.getLogger(CsvXmlValidateAndGenerateReport.class);
 
 	public static Set<Integer> findDuplicateReferences(List reportEntity) {

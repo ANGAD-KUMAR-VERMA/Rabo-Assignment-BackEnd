@@ -7,11 +7,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import cts.rabobank.projects.csvxmlvalidator.repo.ParserInterface;
-
 @XmlRootElement(name = "record")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Records implements ParserInterface {
+public class Records {
 	private Integer reference;
 	private String accountNumber;
 	private String description;
@@ -82,7 +80,5 @@ public class Records implements ParserInterface {
 	public void setEndBalance(BigDecimal endBalance) {
 		this.endBalance = endBalance;
 	}
-
-	
 
 }

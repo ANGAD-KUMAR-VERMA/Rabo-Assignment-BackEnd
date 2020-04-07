@@ -1,34 +1,59 @@
 package cts.rabobank.projects.csvxmlvalidator.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.UnmarshalException;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import cts.rabobank.projects.csvxmlvalidator.entity.CSVEntity;
-import cts.rabobank.projects.csvxmlvalidator.entity.Records;
-import cts.rabobank.projects.csvxmlvalidator.util.CsvXmlValidateAndGenerateReport;
+import cts.rabobank.projects.csvxmlvalidator.exception.FileDoesnotExistException;
+import cts.rabobank.projects.csvxmlvalidator.exception.UnExpectedFileFormatException;
 
 public class XmlServiceTest {
 
 	@Test
-	void testCsvValidateAndGenerateReport() throws IOException, JAXBException{
-		XmlService test = new XmlService();
-		test.validateAndGenerateReport("src/main/resources/records.xml");
+	void testCsvValidateAndGenerateReport() throws IOException, JAXBException {
+		Assertions.assertDoesNotThrow(() -> {
+			XmlService test = new XmlService();
+			test.validateAndGenerateReport("src/main/resources/records.xml");
+		});
 	}
 
+//	@Test()
+//	void testUnknownFileException() {
+//
+//		Assertions.assertThrows(UnknownFileException.class, () -> {
+//			String fileType = "txt";
+//			if (!fileType.equals("csv") && !fileType.equals("xml")) {
+//				throw new UnknownFileException("Unknown File Type");
+//			}
+//		});
+//	}
 
+	@Test
+	void testFileDoesnotExistexception() {
+
+		Assertions.assertThrows(FileDoesnotExistException.class, () -> {
+			XmlService test = new XmlService();
+			test.uploadFile("src/main/resources/unknown.xml");
+		});
+	}
+
+	@Test
+	void testUploadFile() {
+		Assertions.assertDoesNotThrow(() -> {
+			XmlService test = new XmlService();
+			test.uploadFile("src/main/resources/records.xml");
+		});
+	}
+
+	@Test
+	void testUnExpectedFileFormatException() {
+		Assertions.assertThrows(UnExpectedFileFormatException.class, () -> {
+			XmlService test = new XmlService();
+			test.uploadFile("src/main/resources/PiratedXmlFile.xml");
+		});
+	}
 
 }
